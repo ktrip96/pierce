@@ -54,7 +54,7 @@
     background-color:#F2F2F2;
     transform: scale(1.05)
 }
-
+/* 
 @media only screen and (max-width: 768px) {
     .welcome_text{
         font-size:2.5rem;
@@ -83,7 +83,7 @@
         font-size:1.3rem;
     }
     
-  }
+  } */
 
 
   /* @media only screen and (max-width: 500px) {
