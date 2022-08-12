@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.6",
+    "framer-motion": "^7.1.0",
     "next": "12.2.4",
     "next-auth": "^4.10.3",
     "react": "18.2.0",

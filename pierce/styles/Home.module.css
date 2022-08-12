@@ -1,15 +1,15 @@
 .welcome_text{
-    font-size:3.5rem;
+    font-size:clamp(28px, 3vw, 3.5rem);
     font-weight: bold;
 }
 
 .description{
-    font-size:2.5rem;
+    font-size:clamp(22px, 2vw, 2.5rem);
     font-weight:bold;
 }
 
 .mini_description{
-    font-size:2rem;
+    font-size:clamp(18px, 1.8vw, 2rem);
     margin-top:10px;
 }
 
@@ -19,8 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:50%;
-    min-width:350px;
+    width:clamp(350px, 50vw, 900px);
     height:80vh;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius:20px;
@@ -33,7 +32,7 @@
     justify-content: center;
     align-items: center;
     height:100vh;
-    background-color: #fee0d0;
+    background-color: #76e7af;
 }
 
 .google_button{
@@ -54,40 +53,20 @@
     background-color:#F2F2F2;
     transform: scale(1.05)
 }
-/* 
-@media only screen and (max-width: 768px) {
-    .welcome_text{
-        font-size:2.5rem;
-    }
-    
-    .description{
-        font-size:2rem;
-    }
-    
-    .mini_description{
-        font-size:1.5rem;
-    }
-    
-  }
 
-  @media only screen and (max-width: 1440px) {
-    .welcome_text{
-        font-size:2rem;
-    }
-    
-    .description{
-        font-size:1.7rem;
-    }
-    
-    .mini_description{
-        font-size:1.3rem;
-    }
-    
-  } */
+.image{
+    width:300px;
+    height:300px;
+    object-fit: cover;
+}
 
-
-  /* @media only screen and (max-width: 500px) {
-    .welcome_text{
-        font-size:2rem;
+@media only screen and (max-width:1024px){
+    .google_button{
+        width:80%;
     }
-  } */
+
+    .image{
+        width:200px;
+        height:200px;
+    }
+}
