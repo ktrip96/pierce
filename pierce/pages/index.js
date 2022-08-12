@@ -34,14 +34,17 @@ export default function Home() {
           animate={{
             scale: 1,
             opacity: 1,
-            transition: { delay: 2.5, duration: 0.6 },
+            transition: { delay: 1.5, duration: 0.6 },
           }}
           className={styles.mini_description}
         >
           Evaluate your teachers{' '}
         </motion.h3>
         <img src={'/students.png'} alt='Students' className={styles.image} />
-        <div className={styles.google_button}>
+        <div
+          className={styles.google_button}
+          onClick={() => console.log('Hello')}
+        >
           <FcGoogle
             style={{ width: '30px', height: '30px', marginRight: '10px' }}
           />
