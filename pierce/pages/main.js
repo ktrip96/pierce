@@ -7,6 +7,11 @@ function main() {
   return (
     <div className={styles.outter_container}>
       <div className={styles.container}>
+        <img
+          src={'/angry_teacher.webp'}
+          alt='Students'
+          className={styles.image}
+        />
         <h1 className={styles.header}>Select your teachers name</h1>
         <select
           id='teacher'

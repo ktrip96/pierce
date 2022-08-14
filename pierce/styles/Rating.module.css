@@ -2,22 +2,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
     background-color: #76e7af;
+    height:100vh;
 }
 
 
 .container{
     font-family:Manrope;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    width:clamp(350px, 50vw, 900px);
-    height:80vh;
+    /* border:2px solid red; */
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-template-areas:
+    "t t t r r r"
+    "f f f c c c";
+    width:clamp(350px, 80vw, 900px);
+    height:90vh;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius:20px;
     background-color: white;
     padding:20px;
+}
+
+.teacher_name{
+    font-family:Poppins;
+    font-weight: bold;
+    font-size:1.7rem;
+}
+
+.teacher_score{
+    font-family:Poppins;
+    font-size:1.3rem;
+}
+
+.teacher_container{
+    grid-area:t;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid green; */
+}
+
+.user_feedback{
+    /* border:2px solid brown; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    grid-area:f;
 }
 
 .image{
@@ -35,12 +70,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    width:250px;
 }
 
 .rating_title{
     font-size:1rem;
     margin-right:20px;
     font-weight: bold;
+    width:150px;
 }
 
 .single_star:hover{
@@ -65,4 +102,29 @@
     cursor: pointer;
     background-color:rgba(122, 40, 203, 0.5);
     transform: scale(1.05)
+}
+
+@media only screen and (max-width:768px){
+    .outter_container{
+        height:100%;
+        padding-bottom:50px;
+    }
+   .container{
+    margin-top:50px;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    grid-template-areas:
+    "t"
+    "f"
+    "r"
+    "c";
+
+    height:100%;
+
+   }
+
+
+
+   
 }
