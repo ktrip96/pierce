@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { motion } from 'framer-motion'
+import Router from 'next/router'
 
 export default function Home() {
   return (
@@ -43,7 +44,7 @@ export default function Home() {
         <img src={'/students.png'} alt='Students' className={styles.image} />
         <div
           className={styles.google_button}
-          onClick={() => console.log('Hello')}
+          onClick={() => Router.push('/main')}
         >
           <FcGoogle
             style={{ width: '30px', height: '30px', marginRight: '10px' }}
