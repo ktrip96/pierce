@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@400;700&family=Roboto:wght@300;400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;

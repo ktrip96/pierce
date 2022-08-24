@@ -1,9 +1,11 @@
 import styles from '../styles/Main.module.css'
 import { useState } from 'react'
 import Router from 'next/router'
+import ComboBox from '../components/ComboBox'
 
 function main() {
-  const [teacher, setTeacher] = useState('')
+  const [selected, setSelected] = useState('')
+
   return (
     <div className={styles.outter_container}>
       <div className={styles.container}>
@@ -12,22 +14,16 @@ function main() {
           alt='Students'
           className={styles.image}
         />
-        <h1 className={styles.header}>Select your teachers name</h1>
-        <select
-          id='teacher'
-          value={teacher}
-          onChange={(e) => setTeacher(e.target.value)}
-        >
-          <option value=''>-- Choose Teacher --</option>
-          <option value='Jerry'>Jerry</option>
-          <option value='Vasiliki'>Vasiliki</option>
-          <option value='Kostadinos'>Kostadinos</option>
-        </select>
+        <h1 className={styles.header} style={{ marginBottom: '20px' }}>
+          Select your teachers name
+        </h1>
+
+        <ComboBox setSelected={setSelected} selected={selected} />
         <div
           className={styles.button}
           onClick={() => {
-            if (teacher === '') alert('Please select teacher first')
-            else Router.push(`/${teacher}`)
+            if (selected === '') alert('Please select teacher first')
+            else Router.push(`/${selected.name}`)
           }}
         >
           <p

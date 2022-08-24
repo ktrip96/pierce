@@ -15,6 +15,13 @@ function Rating() {
   const [homeworkRating, setHomeworkRating] = useState(null)
   const [homeworkHover, setHomeworkHover] = useState(null)
 
+  const [comment, setComment] = useState('')
+
+  const handleCommentChange = (event) => {
+    // 👇️ update textarea value
+    setComment(event.target.value)
+  }
+
   // funny , fair , strict, homework
 
   return (
@@ -152,6 +159,64 @@ function Rating() {
               Submit
             </p>
           </div>
+        </div>
+
+        <div className={styles.user_comment}>
+          <div className={styles.same_line}>
+            <img
+              src={'/male/male_avatar.webp'}
+              alt='teacher'
+              style={{ width: '60px', height: '60px', borderRadius: '50%' }}
+            />
+            <textarea
+              className={styles.text_area}
+              id='comment'
+              name='comment'
+              value={comment}
+              onChange={handleCommentChange}
+            ></textarea>
+          </div>
+          <div className={styles.button}>
+            <p
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                letterSpacing: '1px',
+              }}
+            >
+              Submit
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.teacher_rating}>
+          <h1 className={styles.teacher_title}>Teacher's rating</h1>
+
+          <br />
+          <h1
+            className={styles.teacher_subtitle}
+            style={{ fontSize: '1.4rem' }}
+          >
+            Funny: <span> 4.5/5</span>
+          </h1>
+          <h1
+            className={styles.teacher_subtitle}
+            style={{ fontSize: '1.4rem' }}
+          >
+            Fair: <span> 4.5/5</span>
+          </h1>
+          <h1
+            className={styles.teacher_subtitle}
+            style={{ fontSize: '1.4rem' }}
+          >
+            Strict: <span> 4.5/5</span>
+          </h1>
+          <h1
+            className={styles.teacher_subtitle}
+            style={{ fontSize: '1.4rem' }}
+          >
+            Homework: <span> 4.5/5</span>
+          </h1>
         </div>
       </div>
     </div>
