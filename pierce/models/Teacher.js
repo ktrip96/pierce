@@ -4,9 +4,6 @@ const teacherSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  surname: {
-    type: String,
-  },
   comments: {
     type: Array,
   },
@@ -18,4 +15,5 @@ const teacherSchema = new mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('Teacher', teacherSchema)
+module.exports =
+  mongoose.models.Teacher || mongoose.model('Teacher', teacherSchema)

@@ -1,15 +1,15 @@
 // pages/_app.js
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
-import { teacherContextProvider } from '../context/teacherContext'
+import { TeacherContextProvider } from '../context/TeacherContext'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <teacherContextProvider>
+    <TeacherContextProvider>
       <ChakraProvider>
         <Component {...pageProps} />
       </ChakraProvider>
-    </teacherContextProvider>
+    </TeacherContextProvider>
   )
 }
 

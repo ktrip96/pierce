@@ -1,24 +1,24 @@
 import React, { createContext, useState } from 'react'
 
-const teacherContext = createContext()
+const TeacherContext = createContext()
 
 // We use Context because all of React components, will need some global data
 // Doing so, we avoid the prop spreading
 
-function teacherContextProvider(props) {
+function TeacherContextProvider(props) {
   const [selected, setSelected] = useState('')
 
   return (
-    <teacherContext.Provider
+    <TeacherContext.Provider
       value={{
         selected,
         setSelected,
       }}
     >
       {props.children}
-    </teacherContext.Provider>
+    </TeacherContext.Provider>
   )
 }
 
-export default teacherContext
-export { teacherContextProvider }
+export default TeacherContext
+export { TeacherContextProvider }

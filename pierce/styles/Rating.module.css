@@ -157,6 +157,26 @@
     transform: scale(1.05)
 }
 
+.mini_button{
+    border:1px solid #DFDFde;
+    width:130px;
+    height:40px;
+    font-size:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: transform .2s;
+    color:white;
+}
+
+.mini_button:hover{
+    cursor: pointer;
+    background-color:rgba(122, 40, 203, 0.5);
+    transform: scale(1.05)
+}
+
 @media only screen and (max-width:768px){
     .outter_container{
         height:100%;

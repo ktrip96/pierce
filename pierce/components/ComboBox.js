@@ -16,14 +16,14 @@ const people = [
   { id: 12, name: 'Konstantinos Trip' },
 ]
 
-export default function ComboBox({ setSelected, selected }) {
+export default function ComboBox({ selected, setSelected, teachers }) {
   const [query, setQuery] = useState('')
 
   const filteredPeople =
     query === ''
-      ? people
-      : people.filter((person) =>
-          person.name
+      ? teachers
+      : teachers.filter((teacher) =>
+          teacher.name
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, ''))
@@ -36,7 +36,7 @@ export default function ComboBox({ setSelected, selected }) {
           <div className='relative w-full cursor-default  rounded-lg bg-white text-left shadow-md '>
             <Combobox.Input
               className='w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
-              displayValue={(person) => person.name}
+              displayValue={(teacher) => teacher.name}
               onChange={(event) => setQuery(event.target.value)}
             />
             <Combobox.Button className='absolute inset-y-0 right-0 flex items-center pr-2'>
@@ -59,15 +59,15 @@ export default function ComboBox({ setSelected, selected }) {
                   Nothing found.
                 </div>
               ) : (
-                filteredPeople.map((person) => (
+                filteredPeople.map((teacher) => (
                   <Combobox.Option
-                    key={person.id}
+                    key={teacher._id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active ? 'bg-teal-600 text-white' : 'text-gray-900'
                       }`
                     }
-                    value={person}
+                    value={teacher}
                   >
                     {({ selected, active }) => (
                       <>
@@ -76,7 +76,7 @@ export default function ComboBox({ setSelected, selected }) {
                             selected ? 'font-medium' : 'font-normal'
                           }`}
                         >
-                          {person.name}
+                          {teacher.name}
                         </span>
                         {selected ? (
                           <span

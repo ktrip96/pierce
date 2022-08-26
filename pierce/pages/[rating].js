@@ -1,6 +1,7 @@
 import styles from '../styles/Rating.module.css'
 import { FaStar } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import TeacherContext from '../context/TeacherContext'
 
 function Rating() {
   const [funnyRating, setFunnyRating] = useState(null)
@@ -16,6 +17,11 @@ function Rating() {
   const [homeworkHover, setHomeworkHover] = useState(null)
 
   const [comment, setComment] = useState('')
+  const [menu, setMenu] = useState(1)
+
+  const { selected } = useContext(TeacherContext)
+
+  console.log({ selected })
 
   const handleCommentChange = (event) => {
     // 👇️ update textarea value
@@ -29,11 +35,11 @@ function Rating() {
       <div className={styles.container}>
         <div className={styles.teacher_container}>
           <img
-            src={'/male/male_avatar.webp'}
+            src={`/${selected.avatar}.webp`}
             alt='teacher'
             className={styles.image}
           />
-          <h1 className={styles.teacher_name}>Maximus Vasileiou</h1>
+          <h1 className={styles.teacher_name}>{selected.name}</h1>
           <p className={styles.teacher_score}>Overall score: 4.5</p>
         </div>
 
@@ -42,7 +48,7 @@ function Rating() {
             <h1 className={styles.rating_title}>Funny:</h1>
             <div className={styles.stars}>
               {[...Array(5)].map((star, i) => (
-                <label>
+                <label key={i}>
                   <input
                     type='radio'
                     name='funnyRating'
@@ -69,7 +75,7 @@ function Rating() {
             <h1 className={styles.rating_title}>Fair:</h1>
             <div className={styles.stars}>
               {[...Array(5)].map((star, i) => (
-                <label>
+                <label key={i}>
                   <input
                     type='radio'
                     name='fairRating'
@@ -96,7 +102,7 @@ function Rating() {
             <h1 className={styles.rating_title}>Strict:</h1>
             <div className={styles.stars}>
               {[...Array(5)].map((star, i) => (
-                <label>
+                <label key={i}>
                   <input
                     type='radio'
                     name='strictRating'
@@ -123,7 +129,7 @@ function Rating() {
             <h1 className={styles.rating_title}>Homework:</h1>
             <div className={styles.stars}>
               {[...Array(5)].map((star, i) => (
-                <label>
+                <label key={i}>
                   <input
                     type='radio'
                     name='homeworkRating'
@@ -162,31 +168,76 @@ function Rating() {
         </div>
 
         <div className={styles.user_comment}>
-          <div className={styles.same_line}>
-            <img
-              src={'/male/male_avatar.webp'}
-              alt='teacher'
-              style={{ width: '60px', height: '60px', borderRadius: '50%' }}
-            />
-            <textarea
-              className={styles.text_area}
-              id='comment'
-              name='comment'
-              value={comment}
-              onChange={handleCommentChange}
-            ></textarea>
-          </div>
-          <div className={styles.button}>
-            <p
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                letterSpacing: '1px',
-              }}
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+            <button
+              className={styles.mini_button}
+              style={{ backgroundColor: '#4285F4' }}
+              onClick={() => setMenu(1)}
             >
-              Submit
-            </p>
+              New comment
+            </button>
+            <button
+              className={styles.mini_button}
+              style={{ backgroundColor: '#DB4437' }}
+              onClick={() => setMenu(2)}
+            >
+              All comments
+            </button>
           </div>
+
+          {menu === 2 ? (
+            <div>
+              {selected.comments.map((item) => (
+                <div className={styles.same_line}>
+                  <img
+                    src={`/${selected.avatar}.webp`}
+                    alt='teacher'
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      borderRadius: '50%',
+                    }}
+                  />
+                  <textarea
+                    readOnly
+                    className={styles.text_area}
+                    id='comment'
+                    name='comment'
+                    style={{ width: '200px', height: '100px' }}
+                    value={item.comment}
+                  ></textarea>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <>
+              <div className={styles.same_line}>
+                <img
+                  src={`/${selected.avatar}.webp`}
+                  alt='teacher'
+                  style={{ width: '60px', height: '60px', borderRadius: '50%' }}
+                />
+                <textarea
+                  className={styles.text_area}
+                  id='comment'
+                  name='comment'
+                  value={comment}
+                  onChange={handleCommentChange}
+                ></textarea>
+              </div>
+              <div className={styles.button}>
+                <p
+                  style={{
+                    color: 'white',
+                    fontWeight: 'bold',
+                    letterSpacing: '1px',
+                  }}
+                >
+                  Submit
+                </p>
+              </div>
+            </>
+          )}
         </div>
 
         <div className={styles.teacher_rating}>
@@ -197,25 +248,25 @@ function Rating() {
             className={styles.teacher_subtitle}
             style={{ fontSize: '1.4rem' }}
           >
-            Funny: <span> 4.5/5</span>
+            Funny: <span> {selected.ratings[0].funny}/5</span>
           </h1>
           <h1
             className={styles.teacher_subtitle}
             style={{ fontSize: '1.4rem' }}
           >
-            Fair: <span> 4.5/5</span>
+            Fair: <span> {selected.ratings[0].fair}/5</span>
           </h1>
           <h1
             className={styles.teacher_subtitle}
             style={{ fontSize: '1.4rem' }}
           >
-            Strict: <span> 4.5/5</span>
+            Strict: <span> {selected.ratings[0].strict}/5</span>
           </h1>
           <h1
             className={styles.teacher_subtitle}
             style={{ fontSize: '1.4rem' }}
           >
-            Homework: <span> 4.5/5</span>
+            Homework: <span> {selected.ratings[0].homework}/5</span>
           </h1>
         </div>
       </div>
