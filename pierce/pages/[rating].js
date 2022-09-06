@@ -21,8 +21,6 @@ function Rating() {
 
   const { selected } = useContext(TeacherContext)
 
-  console.log({ selected })
-
   const handleCommentChange = (event) => {
     // 👇️ update textarea value
     setComment(event.target.value)
@@ -35,11 +33,13 @@ function Rating() {
       <div className={styles.container}>
         <div className={styles.teacher_container}>
           <img
-            src={`/${selected.avatar}.webp`}
+            src={selected !== '' ? `/${selected.avatar}.webp` : '/students.png'}
             alt='teacher'
             className={styles.image}
           />
-          <h1 className={styles.teacher_name}>{selected.name}</h1>
+          <h1 className={styles.teacher_name}>
+            {selected !== '' && selected.name}
+          </h1>
           <p className={styles.teacher_score}>Overall score: 4.5</p>
         </div>
 
@@ -187,33 +187,42 @@ function Rating() {
 
           {menu === 2 ? (
             <div>
-              {selected.comments.map((item) => (
-                <div className={styles.same_line}>
-                  <img
-                    src={`/${selected.avatar}.webp`}
-                    alt='teacher'
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      borderRadius: '50%',
-                    }}
-                  />
-                  <textarea
-                    readOnly
-                    className={styles.text_area}
-                    id='comment'
-                    name='comment'
-                    style={{ width: '200px', height: '100px' }}
-                    value={item.comment}
-                  ></textarea>
-                </div>
-              ))}
+              {selected !== '' &&
+                selected.comments.map((item) => (
+                  <div className={styles.same_line}>
+                    <img
+                      src={
+                        selected !== ''
+                          ? `/${selected.avatar}.webp`
+                          : '/students.png'
+                      }
+                      alt='teacher'
+                      style={{
+                        width: '60px',
+                        height: '60px',
+                        borderRadius: '50%',
+                      }}
+                    />
+                    <textarea
+                      readOnly
+                      className={styles.text_area}
+                      id='comment'
+                      name='comment'
+                      style={{ width: '200px', height: '100px' }}
+                      value={item.comment}
+                    ></textarea>
+                  </div>
+                ))}
             </div>
           ) : (
             <>
               <div className={styles.same_line}>
                 <img
-                  src={`/${selected.avatar}.webp`}
+                  src={
+                    selected !== ''
+                      ? `/${selected.avatar}.webp`
+                      : '/students.png'
+                  }
                   alt='teacher'
                   style={{ width: '60px', height: '60px', borderRadius: '50%' }}
                 />
