@@ -2,12 +2,20 @@ import styles from '../styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { motion } from 'framer-motion'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
-  const { data: session } = useSession()
+  const router = useRouter()
+
   return (
     <div className={styles.outter_container}>
       <div className={styles.container}>
+        <div
+          className={styles.button}
+          onClick={() => router.push('/learnMore')}
+        >
+          Learn More
+        </div>
         <motion.h1
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{

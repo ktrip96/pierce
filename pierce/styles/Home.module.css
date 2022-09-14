@@ -30,6 +30,7 @@
     border-radius:20px;
     background-color: white;
     padding:20px;
+    position:relative
 }
 
 .outter_container{
@@ -53,6 +54,29 @@
 }
 
 .google_button:hover{
+    cursor: pointer;
+    background-color:#F2F2F2;
+    transform: scale(1.05)
+}
+
+.button{
+    border:1px solid #DFDFde;
+    width:fit-content;
+    height:40px;
+    text-align: center;
+    border-radius:10px;
+    padding:10px;
+    padding-left:20px;
+    padding-right:20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: transform .2s;
+    position:absolute;
+    top:15px;
+    right:15px;
+    font-weight: bold;
+}
+
+.button:hover{
     cursor: pointer;
     background-color:#F2F2F2;
     transform: scale(1.05)
