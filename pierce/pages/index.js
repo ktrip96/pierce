@@ -1,7 +1,6 @@
 import styles from '../styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { motion } from 'framer-motion'
-import Router from 'next/router'
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 export default function Home() {
