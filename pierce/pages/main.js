@@ -4,11 +4,15 @@ import Router from 'next/router'
 import ComboBox from '../components/ComboBox'
 import TeacherContext from '../context/TeacherContext'
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
 
 function main() {
   const { setSelected, selected } = useContext(TeacherContext)
   const [teachers, setTeachers] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const { data: session } = useSession()
+
+  console.log({ session })
 
   useEffect(() => {
     axios
@@ -25,6 +29,7 @@ function main() {
         <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Loading ...</h1>
       ) : (
         <div className={styles.container}>
+          <img src={session.user.image} alt='' className={styles.mini_image} />
           <img
             src={'/angry_teacher.webp'}
             alt='Students'

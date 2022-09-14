@@ -2,14 +2,17 @@
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { TeacherContextProvider } from '../context/TeacherContext'
+import { SessionProvider } from 'next-auth/react'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, session }) {
   return (
-    <TeacherContextProvider>
-      <ChakraProvider>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </TeacherContextProvider>
+    <SessionProvider session={session}>
+      <TeacherContextProvider>
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </TeacherContextProvider>
+    </SessionProvider>
   )
 }
 

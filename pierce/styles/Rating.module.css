@@ -23,7 +23,33 @@
     border-radius:20px;
     background-color: white;
     padding:20px;
+    position:relative;
 }
+
+.backIcon{
+    position: absolute;
+    top:20px;
+    left:20px;
+    transition: transform .2s;
+}
+
+.backIcon:hover{
+    cursor: pointer;
+    transform: scale(1.2)
+}
+
+.logoutIcon{
+    position: absolute;
+    top:20px;
+    right:20px;
+    transition: transform .2s;
+}
+
+.logoutIcon:hover{
+    cursor: pointer;
+    transform: scale(1.2)
+}
+
 
 
 

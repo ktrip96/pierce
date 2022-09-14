@@ -2,8 +2,10 @@ import styles from '../styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { motion } from 'framer-motion'
 import Router from 'next/router'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 export default function Home() {
+  const { data: session } = useSession()
   return (
     <div className={styles.outter_container}>
       <div className={styles.container}>
@@ -44,7 +46,10 @@ export default function Home() {
         <img src={'/students.png'} alt='Students' className={styles.image} />
         <div
           className={styles.google_button}
-          onClick={() => Router.push('/main')}
+          // onClick={() => Router.push('/main')}
+          onClick={() =>
+            signIn('google', { callbackUrl: 'http://localhost:3000/main' })
+          }
         >
           <FcGoogle
             style={{ width: '30px', height: '30px', marginRight: '10px' }}

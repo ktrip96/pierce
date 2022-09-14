@@ -6,7 +6,7 @@ const TeacherContext = createContext()
 // Doing so, we avoid the prop spreading
 
 function TeacherContextProvider(props) {
-  const [selected, setSelected] = useState('')
+  const [selected, setSelected] = useState({ ratings: [] })
 
   return (
     <TeacherContext.Provider
