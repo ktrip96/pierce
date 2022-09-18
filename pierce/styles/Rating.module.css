@@ -57,6 +57,7 @@
     font-family:Poppins;
     font-weight: bold;
     font-size:1.7rem;
+    text-align: center;
 }
 
 .teacher_score{
@@ -207,6 +208,10 @@
     .outter_container{
         height:100%;
         padding-bottom:50px;
+    }
+
+    .text_area{
+        width:240px;
     }
    .container{
     margin-top:50px;

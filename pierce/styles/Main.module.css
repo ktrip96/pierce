@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
+    min-height:100vh;
     background: linear-gradient(#8feea3, #e097ea);
 }
 
@@ -15,7 +15,7 @@
     justify-content: flex-start;
     align-items: center;
     width:clamp(350px, 50vw, 900px);
-    height:80vh;
+    min-height:80vh;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius:20px;
     background-color: white;

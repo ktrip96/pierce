@@ -66,10 +66,10 @@ function Rating() {
     const data = {
       name: selected.name,
       rating: {
-        funny: funnyRating,
-        strict: strictRating,
-        fair: fairRating,
-        homework: homeworkRating,
+        funny: funnyRating + 1,
+        strict: strictRating + 1,
+        fair: fairRating + 1,
+        homework: homeworkRating + 1,
       },
     }
     axios
@@ -86,7 +86,7 @@ function Rating() {
             console.log(response.data)
             setSelected(response.data.message[0])
           })
-        alert('Successfully added your comment')
+        alert('Successfully added your rating')
       })
   }
 
@@ -296,7 +296,6 @@ function Rating() {
                     className={styles.text_area}
                     id='comment'
                     name='comment'
-                    style={{ width: '200px', height: '100px' }}
                     value={item.comment}
                   ></textarea>
                 </div>
