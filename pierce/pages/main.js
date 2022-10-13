@@ -18,7 +18,7 @@ function main() {
       // Δες αν υπάρχει ο χρήστης στη βάση.
       // Αν υπάρχει απλά πήγαινε στην επόμενη σελίδα.
       // Αν δεν υπάρχει, βάλτον στην βάση και μετά πήγαινε στην επόμενη σελίδα.
-      axios.post(`http://localhost:3000/api/user`, session.user)
+      axios.post(`http://${location.hostname}:3000/api/user`, session.user)
       Router.push(`/${selected.name}`)
     }
   }

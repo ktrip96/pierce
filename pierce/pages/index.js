@@ -60,11 +60,12 @@ export default function Home() {
         />
         <div
           className={styles.google_button}
-          onClick={() =>
+          onClick={() => {
+            alert(`Callback Url: http://${location.hostname}:3000/main`)
             signIn('google', {
               callbackUrl: `http://${location.hostname}:3000/main`,
             })
-          }
+          }}
         >
           <FcGoogle
             style={{ width: '30px', height: '30px', marginRight: '10px' }}
