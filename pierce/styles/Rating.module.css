@@ -71,11 +71,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border:2px solid green; */
+    border:2px solid green;
 }
 
 .user_feedback{
-    /* border:2px solid brown; */
+    border:2px solid brown;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -86,7 +86,7 @@
 
 .user_comment{
     grid-area:c;
-    /* border:2px solid green; */
+    border:2px solid green;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,7 +116,7 @@
     justify-content: center;
     align-items: center;
     padding-left:30px;
-    /* border:2px solid red; */
+    border:2px solid red;
 }
 
 .image{

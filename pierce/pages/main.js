@@ -27,7 +27,7 @@ function main() {
     // Την πρώτη φορά που θα εκτελεστείς φέρε μου όλους τους καθηγητές,
     // για να τους βάλω στο dropdown
     axios
-      .get(`http://${location.hostname}:3000/api/teacher`)
+      .get(`https://${location.hostname}:3000/api/teacher`)
       .then(function (response) {
         setTeachers(response.data.data)
         setIsLoading(false)
@@ -37,7 +37,7 @@ function main() {
   if (isLoading)
     return (
       <div className={styles.outter_container}>
-        <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Loading</h1>
+        <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Loading...</h1>
       </div>
     )
 
