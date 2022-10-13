@@ -27,7 +27,7 @@ function main() {
     // Την πρώτη φορά που θα εκτελεστείς φέρε μου όλους τους καθηγητές,
     // για να τους βάλω στο dropdown
     axios
-      .get(`https://${location.hostname}:3000/api/teacher`)
+      .get(`https://${location.hostname}/api/teacher`)
       .then(function (response) {
         setTeachers(response.data.data)
         setIsLoading(false)
