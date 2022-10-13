@@ -1,8 +1,9 @@
 import styles from '../styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { motion } from 'framer-motion'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export default function Home() {
   const router = useRouter()
@@ -50,12 +51,19 @@ export default function Home() {
         >
           Evaluate your teachers{' '}
         </motion.h3>
-        <img src={'/students.png'} alt='Students' className={styles.image} />
+        <Image
+          src={'/students.png'}
+          alt='Students'
+          width={300}
+          height={300}
+          className={styles.image}
+        />
         <div
           className={styles.google_button}
-          // onClick={() => Router.push('/main')}
           onClick={() =>
-            signIn('google', { callbackUrl: 'http://localhost:3000/main' })
+            signIn('google', {
+              callbackUrl: `http://${location.hostname}:3000/main`,
+            })
           }
         >
           <FcGoogle

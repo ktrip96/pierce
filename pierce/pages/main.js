@@ -12,9 +12,20 @@ function main() {
   const [isLoading, setIsLoading] = useState(true)
   const { data: session } = useSession()
 
-  console.log({ session })
+  const handleClick = () => {
+    if (selected === '') alert('Please select teacher first')
+    else {
+      // Δες αν υπάρχει ο χρήστης στη βάση.
+      // Αν υπάρχει απλά πήγαινε στην επόμενη σελίδα.
+      // Αν δεν υπάρχει, βάλτον στην βάση και μετά πήγαινε στην επόμενη σελίδα.
+      axios.post(`http://localhost:3000/api/user`, session.user)
+      Router.push(`/${selected.name}`)
+    }
+  }
 
   useEffect(() => {
+    // Την πρώτη φορά που θα εκτελεστείς φέρε μου όλους τους καθηγητές,
+    // για να τους βάλω στο dropdown
     axios
       .get(`http://${location.hostname}:3000/api/teacher`)
       .then(function (response) {
@@ -23,46 +34,48 @@ function main() {
       })
   }, [])
 
+  if (isLoading)
+    return (
+      <div className={styles.outter_container}>
+        <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Loading</h1>
+      </div>
+    )
+
   return (
     <div className={styles.outter_container}>
-      {isLoading ? (
-        <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Loading ...</h1>
-      ) : (
-        <div className={styles.container}>
-          <img src={session.user.image} alt='' className={styles.mini_image} />
-          <img
-            src={'/angry_teacher.webp'}
-            alt='Students'
-            className={styles.image}
-          />
-          <h1 className={styles.header} style={{ marginBottom: '20px' }}>
-            Select your teachers name
-          </h1>
+      <div className={styles.container}>
+        <img
+          src={session.user.image}
+          referrerPolicy='no-referrer'
+          alt=''
+          className={styles.mini_image}
+        />
+        <img
+          src={'/angry_teacher.webp'}
+          alt='Students'
+          className={styles.image}
+        />
+        <h1 className={styles.header} style={{ marginBottom: '20px' }}>
+          Select your teachers name
+        </h1>
 
-          <ComboBox
-            setSelected={setSelected}
-            selected={selected}
-            teachers={teachers}
-          />
-          <div
-            className={styles.button}
-            onClick={() => {
-              if (selected === '') alert('Please select teacher first')
-              else Router.push(`/${selected.name}`)
+        <ComboBox
+          setSelected={setSelected}
+          selected={selected}
+          teachers={teachers}
+        />
+        <div className={styles.button} onClick={handleClick}>
+          <p
+            style={{
+              color: 'white',
+              fontWeight: 'bold',
+              letterSpacing: '1px',
             }}
           >
-            <p
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                letterSpacing: '1px',
-              }}
-            >
-              Continue
-            </p>
-          </div>
+            Continue
+          </p>
         </div>
-      )}
+      </div>
     </div>
   )
 }

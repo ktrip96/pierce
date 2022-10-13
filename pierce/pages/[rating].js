@@ -28,8 +28,6 @@ function Rating() {
   const router = useRouter()
   const { data: session } = useSession()
 
-  console.log({ selected })
-
   const handleCommentChange = (event) => {
     // 👇️ update textarea value
     setComment(event.target.value)
@@ -47,7 +45,6 @@ function Rating() {
     axios
       .post(`http://${location.hostname}:3000/api/teacher/comments`, data)
       .then(function (response) {
-        console.log(response)
         axios
           .get(`http://${location.hostname}:3000/api/teacher/single`, {
             params: {
@@ -55,7 +52,6 @@ function Rating() {
             },
           })
           .then(function (response) {
-            console.log(response.data)
             setSelected(response.data.message[0])
           })
         alert('Successfully added your comment')
@@ -72,6 +68,18 @@ function Rating() {
         homework: homeworkRating + 1,
       },
     }
+
+    //
+    axios
+      .get(`http://${location.hostname}:3000/api/users/single`, {
+        params: {
+          email: session.user.email,
+        },
+      })
+      .then(function (response) {
+        console.log('SINGLE USER RESPONSE', response.data)
+      })
+
     axios
       .post(`http://${location.hostname}:3000/api/teacher/ratings`, data)
       .then(function (response) {
@@ -85,6 +93,14 @@ function Rating() {
           .then(function (response) {
             console.log(response.data)
             setSelected(response.data.message[0])
+          })
+        axios
+          .put(`http://${location.hostname}:3000/api/user`, {
+            email: session.user.email,
+            teacherName: selected.name,
+          })
+          .then(function (response) {
+            console.log(response.data)
           })
         alert('Successfully added your rating')
       })
@@ -282,6 +298,7 @@ function Rating() {
                 <div className={styles.same_line}>
                   <img
                     src={item.userImage}
+                    referrerPolicy='no-referrer'
                     alt='teacher'
                     style={{
                       width: '40px',
@@ -307,6 +324,7 @@ function Rating() {
                 <img
                   src={session.user.image}
                   alt={session.user.name}
+                  referrerPolicy='no-referrer'
                   style={{
                     width: '40px',
                     height: '40px',
