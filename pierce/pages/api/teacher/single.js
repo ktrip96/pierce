@@ -7,6 +7,7 @@ export default async (req, res) => {
   const { method } = req
 
   switch (method) {
+    // Δέχεται το όνομα του καθηγητή και επιστρέφει τα στοιχεία του
     case 'GET':
       try {
         const teachers = await Teacher.find({ name: req.query.name })

@@ -61,9 +61,9 @@ export default function Home() {
         <div
           className={styles.google_button}
           onClick={() => {
-            alert(`Callback Url: http://${location.hostname}:3000/main`)
+            alert(`Callback Url: http://${location.hostname}/main`)
             signIn('google', {
-              callbackUrl: `http://${location.hostname}:3000/main`,
+              callbackUrl: `http://${location.hostname}/main`,
             })
           }}
         >
