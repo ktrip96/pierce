@@ -26,7 +26,7 @@ function Rating() {
       // Get Teacher Info
       axios
         .get(
-          `http://${location.hostname}:3000/api/teacher/single?name=${teacherName}`
+          `http://${location.hostname}/api/teacher/single?name=${teacherName}`
         )
         .then(function (response) {
           setSelected(response.data.message[0])
@@ -44,7 +44,7 @@ function Rating() {
       const email = session.user.email
 
       axios
-        .get(`http://${location.hostname}:3000/api/user/single/?name=${email}`)
+        .get(`http://${location.hostname}/api/user/single/?name=${email}`)
         .then(function (response) {
           setTeacherNames(response.data.data[0].teacherNames)
         })

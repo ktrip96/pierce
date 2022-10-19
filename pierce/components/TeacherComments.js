@@ -21,10 +21,10 @@ function TeacherComments({ session, selected, setSelected }) {
       },
     }
     axios
-      .post(`http://${location.hostname}:3000/api/teacher/comments`, data)
+      .post(`http://${location.hostname}/api/teacher/comments`, data)
       .then(function (response) {
         axios
-          .get(`http://${location.hostname}:3000/api/teacher/single`, {
+          .get(`http://${location.hostname}/api/teacher/single`, {
             params: {
               name: data.name,
             },

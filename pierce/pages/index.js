@@ -62,7 +62,7 @@ export default function Home() {
           className={styles.google_button}
           onClick={() => {
             signIn('google', {
-              callbackUrl: `http://${location.hostname}:3000/main`,
+              callbackUrl: `http://${location.hostname}/main`,
             })
           }}
         >

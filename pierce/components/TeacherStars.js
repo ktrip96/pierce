@@ -44,10 +44,10 @@ function TeacherStars({
     // Αν είναι η πρώτη φορά που κάνεις κριτική τότε
     // α) Πέρνα την κριτική στη βάση δεδομένων
     axios
-      .post(`http://${location.hostname}:3000/api/teacher/ratings`, data)
+      .post(`http://${location.hostname}/api/teacher/ratings`, data)
       .then(function (response) {
         axios
-          .get(`http://${location.hostname}:3000/api/teacher/single`, {
+          .get(`http://${location.hostname}/api/teacher/single`, {
             params: {
               name: data.name,
             },
@@ -59,7 +59,7 @@ function TeacherStars({
 
         // β) Κάνε update τον πίνακα
         axios
-          .put(`http://${location.hostname}:3000/api/user`, {
+          .put(`http://${location.hostname}/api/user`, {
             email: session.user.email,
             teacherName: selected.name,
           })
