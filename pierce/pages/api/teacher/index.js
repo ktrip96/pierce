@@ -8,7 +8,7 @@ export default async (req, res) => {
 
   switch (method) {
     // Επιστρέφει όλους τους καθηγητές
-    // π.χ. http://localhost:3000/api/teacher
+    // π.χ. https://localhost:3000/api/teacher
 
     case 'GET':
       try {
@@ -30,7 +30,7 @@ export default async (req, res) => {
       "avatar":"male_avatar1"
       }
     */
-    // π.χ. http://localhost:3000/api/teacher/
+    // π.χ. https://localhost:3000/api/teacher/
 
     case 'POST':
       try {

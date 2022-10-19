@@ -18,7 +18,7 @@ function main() {
       // Δες αν υπάρχει ο χρήστης στη βάση.
       // Αν υπάρχει απλά πήγαινε στην επόμενη σελίδα.
       // Αν δεν υπάρχει, βάλτον στην βάση και μετά πήγαινε στην επόμενη σελίδα.
-      axios.post(`http://${location.hostname}/api/user`, session.user)
+      axios.post(`https://${location.hostname}/api/user`, session.user)
       Router.push(`/${selected.name}`)
     }
   }
@@ -27,7 +27,7 @@ function main() {
     // Την πρώτη φορά που θα εκτελεστείς φέρε μου όλους τους καθηγητές,
     // για να τους βάλω στο dropdown
     axios
-      .get(`http://${location.hostname}/api/teacher`)
+      .get(`https://${location.hostname}/api/teacher`)
       .then(function (response) {
         setTeachers(response.data.data)
         setIsLoading(false)
