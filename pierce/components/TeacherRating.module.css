@@ -1,0 +1,22 @@
+.teacher_rating{
+    grid-area:r;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left:30px;
+}
+
+.teacher_title{
+    font-size:1.8rem;
+    font-weight: bold;
+    font-family:Poppins;
+    width:300px;
+}
+
+.teacher_subtitle{
+    font-size:1.3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width:300px;
+}

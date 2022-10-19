@@ -15,7 +15,7 @@ export default function Home() {
           className={styles.button}
           onClick={() => router.push('/learnMore')}
         >
-          Learn More
+          Learn more
         </div>
         <motion.h1
           initial={{ scale: 0.5, opacity: 0 }}
@@ -61,9 +61,8 @@ export default function Home() {
         <div
           className={styles.google_button}
           onClick={() => {
-            alert(`Callback Url: http://${location.hostname}/main`)
             signIn('google', {
-              callbackUrl: `http://${location.hostname}/main`,
+              callbackUrl: `http://${location.hostname}:3000/main`,
             })
           }}
         >

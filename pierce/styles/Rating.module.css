@@ -26,6 +26,10 @@
     position:relative;
 }
 
+
+
+
+
 .backIcon{
     position: absolute;
     top:20px;
@@ -60,64 +64,13 @@
     text-align: center;
 }
 
-.teacher_score{
-    font-family:Poppins;
-    font-size:1.3rem;
-}
-
-.teacher_container{
-    grid-area:t;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border:2px solid green;
-}
-
-.user_feedback{
-    border:2px solid brown;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding:10px;
-    grid-area:f;
-}
-
-.user_comment{
-    grid-area:c;
-    border:2px solid green;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.same_line{
-    display: flex;
-    width:100%;
-    margin-top:25px;
-    
-}
-
-.text_area{
-    width:300px;
-    height:200px;
-    border:1px solid #484848;
-    border-radius:10px;
-    padding:10px;
-}
 
 
-.teacher_rating{
-    grid-area:r;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left:30px;
-    border:2px solid red;
-}
+
+
+
+
+
 
 .image{
     width:300px;
@@ -125,84 +78,7 @@
     object-fit: cover;
 }
 
-.stars{
-    display:flex;
-    flex-direction: row;
-}
 
-.rating_line{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width:250px;
-}
-
-
-.teacher_title{
-    font-size:1.8rem;
-    font-weight: bold;
-    font-family:Poppins;
-    width:300px;
-}
-
-.teacher_subtitle{
-    font-size:1.3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    width:300px;
-}
-
-
-.rating_title{
-    font-size:1rem;
-    margin-right:20px;
-    font-weight: bold;
-    width:150px;
-}
-
-.single_star:hover{
-    cursor: pointer;
-}
-
-.button{
-    margin-top:30px;
-    border:1px solid #DFDFde;
-    width:300px;
-    height:55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius:10px;
-    background-color: rgba(122, 40, 203, 0.7);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    transition: transform .2s;
-}
-
-.button:hover{
-    cursor: pointer;
-    background-color:rgba(122, 40, 203, 0.5);
-    transform: scale(1.05)
-}
-
-.mini_button{
-    border:1px solid #DFDFde;
-    width:130px;
-    height:40px;
-    font-size:15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius:10px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    transition: transform .2s;
-    color:white;
-}
-
-.mini_button:hover{
-    cursor: pointer;
-    background-color:rgba(122, 40, 203, 0.5);
-    transform: scale(1.05)
-}
 
 @media only screen and (max-width:768px){
     .outter_container{

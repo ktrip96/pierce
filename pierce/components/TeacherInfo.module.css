@@ -1,0 +1,26 @@
+.teacher_container{
+    grid-area:t;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    width:300px;
+    height:300px;
+    object-fit: cover;
+}
+
+
+.teacher_name{
+    font-family:Poppins;
+    font-weight: bold;
+    font-size:1.7rem;
+    text-align: center;
+}
+
+.teacher_score{
+    font-family:Poppins;
+    font-size:1.3rem;
+}
