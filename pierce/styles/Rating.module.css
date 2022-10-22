@@ -8,7 +8,6 @@
 
 
 .container{
-    font-family:Manrope;
     /* border:2px solid red; */
     display:grid;
     grid-template-columns: repeat(6, 1fr);
@@ -58,18 +57,10 @@
 
 
 .teacher_name{
-    font-family:Poppins;
     font-weight: bold;
     font-size:1.7rem;
     text-align: center;
 }
-
-
-
-
-
-
-
 
 
 .image{

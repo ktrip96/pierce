@@ -64,3 +64,8 @@
     transform: scale(1.05)
 }
 
+@media only screen and (max-width:768px){
+    .text_area{
+        width:250px;
+    }
+  }

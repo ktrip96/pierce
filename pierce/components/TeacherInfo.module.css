@@ -14,13 +14,11 @@
 
 
 .teacher_name{
-    font-family:Poppins;
     font-weight: bold;
     font-size:1.7rem;
     text-align: center;
 }
 
 .teacher_score{
-    font-family:Poppins;
     font-size:1.3rem;
 }

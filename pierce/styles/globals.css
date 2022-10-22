@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@400;700&family=Roboto:wght@300;400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,8 +5,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Poppins,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
