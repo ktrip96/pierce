@@ -37,7 +37,7 @@
 
 .text_area{
     width:300px;
-    height:200px;
+    height:fit-content;
     border:1px solid #484848;
     border-radius:10px;
     padding:10px;
